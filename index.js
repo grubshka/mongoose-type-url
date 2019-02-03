@@ -7,16 +7,14 @@ function validateUrl (val) {
   return regUrl.test(val)
 }
 
-function Url (path, options) {
-  mongoose.SchemaTypes.String.call(this, path, options)
-  this.validate(validateUrl, 'url is invalid')
+class SchemaTypeUrl extends mongoose.SchemaTypes.String {
+  cast(val) {
+    _val = super.cast(val);
+    if (!validateUrl(_val)) {
+      throw new Error('Url: ' + val + ' is not a valid URL')
+    }
+    return normalizeUrl(_val);
+  }
 }
 
-Object.assign(Url, mongoose.SchemaTypes.String);
-
-Url.prototype.cast = function (val) {
-  return normalizeUrl(val)
-}
-
-mongoose.SchemaTypes.Url = module.exports = Url
-mongoose.Types.Url = String
+mongoose.Schema.Types.Url = module.exports = SchemaTypeUrl

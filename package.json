@@ -28,8 +28,8 @@
     "normalize-url": "^4.0.0"
   },
   "devDependencies": {
-    "jest": "^22.4.4",
-    "mockingoose": "^2.9.1",
+    "jest": "^24.0.0",
+    "mockingoose": "^2.12.0",
     "mongoose": "^5.3.14",
     "release-it": "^8.0.1"
   },

@@ -1,6 +1,7 @@
 /* global describe, it, expect */
-require('mockingoose')
+const mockingoose = require('mockingoose').default;
 const mongoose = require('mongoose')
+
 require('../')
 
 const UserSimple = mongoose.model('UserSimple', new mongoose.Schema({
