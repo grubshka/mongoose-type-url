@@ -7,7 +7,7 @@ function validateUrl (val) {
   return regUrl.test(val)
 }
 
-class SchemaTypeUrl extends mongoose.SchemaTypes.String {
+class SchemaTypeUrl extends mongoose.Schema.Types.String {
   cast(val) {
     _val = super.cast(val);
     if (!validateUrl(_val)) {
